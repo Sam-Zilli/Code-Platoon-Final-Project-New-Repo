@@ -14,15 +14,15 @@ import {
 
 import { cartReducer } from './reducers/cartReducers'
 
-// // import {
-// //     userLoginReducer,
+import {
+    userLoginReducer,
 // //     userRegisterReducer,
 // //     userDetailsReducer,
 // //     userUpdateProfileReducer,
 // //     userListReducer,
 // //     userDeleteReducer,
 // //     userUpdateReducer,
-// // } from './reducers/userReducers'
+} from './reducers/userReducers'
 
 // // import {
 // //     orderCreateReducer,
@@ -42,7 +42,7 @@ import { cartReducer } from './reducers/cartReducers'
     productUpdate: productUpdateReducer,
 
     cart: cartReducer,
-//     // userLogin: userLoginReducer,
+    userLogin: userLoginReducer,
 //     // userRegister: userRegisterReducer,
 //     // userDetails: userDetailsReducer,
 //     // userUpdateProfile: userUpdateProfileReducer,
