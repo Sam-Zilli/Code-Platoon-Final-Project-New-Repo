@@ -19,20 +19,20 @@ function HomeScreen() {
 // -----------------------------------------------------------------------
 
     // from week 17 day 4 chad lesson
-    // const [users, setUsers] = useState([])
+    const [users, setUsers] = useState([])
 
-    // useEffect( () => {
-    //     async function getUser() {
-    //         const res = await fetch("https://taylorswiftapi.onrender.com/get")
-    //         const body = await res.json()
-    //         setUsers(body)
-    //     }
-    //     getUser()
-    // }, [dispatch])
+    useEffect( () => {
+        async function getUser() {
+            const res = await fetch("https://taylorswiftapi.onrender.com/get")
+            const body = await res.json()
+            setUsers(body)
+        }
+        getUser()
+    }, [dispatch])
 
-    // const createOptions = () => {
-    //     return users.quote
-    // }
+    const createOptions = () => {
+        return users.quote
+    }
 
   // -----------------------------------------------------------------------  
     return (
@@ -45,7 +45,7 @@ function HomeScreen() {
                     {products.map(product => (
                         <Col key={product._id} sm={12} md={6} lg={4} xl={2}>
                             <Product product={product} />
-                            {/* {createOptions()} */}
+                            {createOptions()}
                         </Col>
                     ))}
                 </Row>}
