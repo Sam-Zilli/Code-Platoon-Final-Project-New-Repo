@@ -5,31 +5,10 @@ import { Row, Col, Image, ListGroup, Button, Card, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {useEffect, useState} from 'react'
 
-// https://cataas.com/cat?json=true
-
 function CartScreen(history) {
 
+    // Cat image API connection START
     const dispatch = useDispatch()
-// -----------------------------------------------------------------------
-
-    // // from week 17 day 4 chad lesson
-    // const [catpic, setcatpic] = useState([])
-
-    // useEffect( () => {
-    //     async function getcatpic() {
-    //         const res = await fetch("https://cataas.com/cat?json=true")
-    //         const body = await res.json()
-    //         setcatpic(body)
-    //     }
-    //     getcatpic()
-    // }, [dispatch])
-
-    // const createOptions2 = () => {
-    //     return catpic.file
-    // }
-
-  // -----------------------------------------------------------------------  
-
     const [img, setImg] = useState();
   
     const fetchImage = async () => {
@@ -42,33 +21,9 @@ function CartScreen(history) {
     useEffect(() => {
       fetchImage();
     }, []);
+
+    // Cat image API connection END
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     const {id} = useParams()
     const productId = id
      
@@ -99,65 +54,61 @@ function CartScreen(history) {
         <Row>
             <Col md={8}>
                 <h1>Completed Adventures</h1>
+                {/*  If they haven't completed any adventures */}
                 {cartItems.length === 0 ? (
                     // <Message variant='info'>
                     //     Your cart is empty <Link to='/'>Go Back</Link>
                     // </Message>
                     <h2> You need to get started! </h2>
                 ) : (
-                        <ListGroup variant='flush'>
-                            {cartItems.map(item => (
-                                <ListGroup.Item key={item.product}>
-                                    <Row>
-                                        {item.name}
-                                        {/* <Col md={2}>
-                                            <Image src={item.image} alt={item.name} fluid rounded />
-                                        </Col> */}
-                                        <Col md={3}>
-                                            <Link to={`/product/${item.product}`}>{item.name}</Link>
-                                            {/* <img src = {createOptions2()} alt = "cat pic" /> */}
-                                            
-                                        </Col>
+                    <ListGroup variant='flush'>
+                    {cartItems.map(item => (
+                        <ListGroup.Item key={item.product}>
+                            <Row>
+                                <Col>
+                                    {item.name}
+                                </Col>
+                                <Col md={3}>
+                                    <Link to={`/product/${item.product}`}>{item.name}</Link>
+                                </Col>
 
-                                        <Col md={2}>
-                                            {item.price}
-                                        </Col>
+                                <Col md={2}>
+                                    {item.price}
+                                </Col>
 
-                                        <Col md={3}>
-                                            <Form.Control
-                                                as="select"
-                                                value={item.qty}
-                                                onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))}
-                                            >
-                                                {
+                                {/* <Col md={3}>
+                                    <Form.Control
+                                        as="select"
+                                        value={item.qty}
+                                        onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))}
+                                    >
+                                        {
 
-                                                    [...Array(item.countInStock).keys()].map((x) => (
-                                                        <option key={x + 1} value={x + 1}>
-                                                            {x + 1}
-                                                        </option>
-                                                    ))
-                                                }
+                                            [...Array(item.countInStock).keys()].map((x) => (
+                                                <option key={x + 1} value={x + 1}>
+                                                    {x + 1}
+                                                </option>
+                                            ))
+                                        }
 
-                                            </Form.Control>
-                                        </Col>
+                                    </Form.Control>
+                                </Col> */}
 
-                                        <Col md={1}>
-                                            <Button
-                                                type='button'
-                                                variant='light'
-                                                onClick={() => removeFromCartHandler(item.product)}
-                                            >
-                                                <i className='fas fa-trash'></i>
-                                            </Button>
-                                            
-                                        </Col>
-                                    </Row>
-                                </ListGroup.Item>
-                            ))}
-                        </ListGroup>
-                        
-                    )}
-            </Col>
+                                <Col md={1}>
+                                    <Button
+                                        type='button'
+                                        title = 'remove'
+                                        onClick={() => removeFromCartHandler(item.product)}
+                                    >
+                                        <i className='trash'></i>
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </ListGroup.Item>
+                    ))}
+                </ListGroup>
+            )}
+    </Col>
 
 
 
