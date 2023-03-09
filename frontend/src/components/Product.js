@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 function Product({ product }) {
     return (
         <Card className="my-3 p-3 rounded">
-            <Link to={`/product/${product._id}`}>
+            {/* <Link to={`/product/${product._id}`}>
                 <Card.Img src={product.image} />
-            </Link>
+            </Link> */}
 
             <Card.Body>
                 <Link to={`/product/${product._id}`}>
@@ -18,13 +18,13 @@ function Product({ product }) {
 
                 <Card.Text as="div">
                     <div className="my-3">
-                        <h6>BUY ME</h6>
+                        <h6>This should be fun!</h6>
                     </div>
                 </Card.Text>
 
 
                 <Card.Text as="h3">
-                    ${product.price}
+                    {product.price}
                 </Card.Text>
             </Card.Body>
         </Card>
