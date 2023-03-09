@@ -1,19 +1,79 @@
 import { useDispatch, useSelector } from 'react-redux'
-import {useEffect} from 'react'
 import { useParams, useLocation } from 'react-router-dom'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 import { Row, Col, Image, ListGroup, Button, Card, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import {useEffect, useState} from 'react'
 
+// https://cataas.com/cat?json=true
 
 function CartScreen(history) {
+
+    const dispatch = useDispatch()
+// -----------------------------------------------------------------------
+
+    // // from week 17 day 4 chad lesson
+    // const [catpic, setcatpic] = useState([])
+
+    // useEffect( () => {
+    //     async function getcatpic() {
+    //         const res = await fetch("https://cataas.com/cat?json=true")
+    //         const body = await res.json()
+    //         setcatpic(body)
+    //     }
+    //     getcatpic()
+    // }, [dispatch])
+
+    // const createOptions2 = () => {
+    //     return catpic.file
+    // }
+
+  // -----------------------------------------------------------------------  
+
+    const [img, setImg] = useState();
+  
+    const fetchImage = async () => {
+      const res = await fetch("https://cataas.com/cat/cute/says/Complete more adventures!");
+      const imageBlob = await res.blob();
+      const imageObjectURL = URL.createObjectURL(imageBlob);
+      setImg(imageObjectURL);
+    };
+  
+    useEffect(() => {
+      fetchImage();
+    }, []);
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     const {id} = useParams()
     const productId = id
      
     const location = useLocation()
     const qty = location.state ? Number(location.state) : 1
-    
-    const dispatch = useDispatch()
  
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart
@@ -55,6 +115,8 @@ function CartScreen(history) {
                                         </Col> */}
                                         <Col md={3}>
                                             <Link to={`/product/${item.product}`}>{item.name}</Link>
+                                            {/* <img src = {createOptions2()} alt = "cat pic" /> */}
+                                            
                                         </Col>
 
                                         <Col md={2}>
@@ -87,11 +149,13 @@ function CartScreen(history) {
                                             >
                                                 <i className='fas fa-trash'></i>
                                             </Button>
+                                            
                                         </Col>
                                     </Row>
                                 </ListGroup.Item>
                             ))}
                         </ListGroup>
+                        
                     )}
             </Col>
 
@@ -126,6 +190,8 @@ function CartScreen(history) {
 
 
                 </Card>
+                <hr></hr>
+                <img style={{ width: 500, height: 600 }} src={img} alt="icons" />
             </Col>
         </Row>
     )
