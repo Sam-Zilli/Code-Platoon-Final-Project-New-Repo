@@ -12,7 +12,7 @@ function ProductScreen() {
     const { id } = useParams()
     const navigate = useNavigate()
  
-    const [qty, setQty] = useState(1)
+    const [qty] = useState(1)
     const dispatch = useDispatch()
  
     const productDetails = useSelector(state => state.productDetails)
@@ -32,16 +32,16 @@ function ProductScreen() {
                 : error ? <h3>I forgot that you existed. (error 404: loading page) </h3>
                 :   
             <Row>
-                <Col md={6}>
+                {/* <Col md={6}>
                     <Image src={product.image} alt={product.name} fluid />
-                </Col>
+                </Col> */}
+
 
                 <Col md={3}>
                     <ListGroup variant = "flush">
                         <ListGroup.Item>
                             <h3>{product.name}</h3>
                         </ListGroup.Item>   
-
 
                         <ListGroup.Item>
                             <h3>{product.description}</h3>
@@ -56,7 +56,7 @@ function ProductScreen() {
                         <ListGroup variant = "flush">
 
                             <ListGroup.Item>
-                                <Col> Price: </Col>
+                                <Col> Points: </Col>
                                 <Col>
                                 <strong>{product.price}</strong>
                                 </Col>
@@ -68,12 +68,12 @@ function ProductScreen() {
                                     onClick={addToCartHandler}
                                     className = 'btn-block' 
                                     type='button'>
-                                    Add to Cart
+                                    Mark as Completed
                                 </Button>
                             </ListGroup.Item>
 
                         </ListGroup >  
-                        {product.countInStock > 0 && (
+                        {/* {product.countInStock > 0 && (
                             <ListGroup.Item>
                             <Row>
                                 <Col>Qty</Col>
@@ -92,7 +92,7 @@ function ProductScreen() {
                                 </Col>
                                 </Row>
                             </ListGroup.Item>
-                        )}         
+                        )}          */}
                     </Card>
                 </Col>
             </Row>

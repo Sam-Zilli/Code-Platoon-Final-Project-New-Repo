@@ -16,25 +16,24 @@ function HomeScreen() {
 
     }, [dispatch])
 
-// -----------------------------------------------------------------------
 
+    // cat API
     // from week 17 day 4 chad lesson
-    // const [users, setUsers] = useState([])
+    const [cat, setCat] = useState([])
 
-    // useEffect( () => {
-    //     async function getUser() {
-    //         const res = await fetch("https://taylorswiftapi.onrender.com/get")
-    //         const body = await res.json()
-    //         setUsers(body)
-    //     }
-    //     getUser()
-    // }, [dispatch])
+    useEffect( () => {
+        async function getCat() {
+            const res = await fetch("https://cataas.com/c/")
+            const body = await res.json()
+            setCat(body)
+        }
+        getCat()
+    }, [dispatch])
 
-    // const createOptions = () => {
-    //     return users.quote
-    // }
+    const createOptions = () => {
+        return cat
+    }
 
-  // -----------------------------------------------------------------------  
     return (
         <div>
             <h1> Quests  </h1>
@@ -44,12 +43,11 @@ function HomeScreen() {
                 <Row>
                     {products.map(product => (
                         <Col key={product._id} sm={12} md={6} lg={4} xl={2}>
-                            <Product product={product} />
-                            {/* {createOptions()} */}
+                            <Product product={product}/>
                         </Col>
                     ))}
                 </Row>}
-
+                {createOptions()}
         </div>
     )
 
