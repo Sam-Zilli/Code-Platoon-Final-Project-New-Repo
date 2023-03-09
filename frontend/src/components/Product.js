@@ -24,7 +24,7 @@ function Product({ product }) {
 
 
                 <Card.Text as="h3">
-                    {product.price}
+                    {product.value}
                 </Card.Text>
             </Card.Body>
         </Card>

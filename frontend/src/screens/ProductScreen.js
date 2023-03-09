@@ -58,7 +58,7 @@ function ProductScreen() {
                             <ListGroup.Item>
                                 <Col> Points: </Col>
                                 <Col>
-                                <strong>{product.price}</strong>
+                                <strong>{product.value}</strong>
                                 </Col>
                             </ListGroup.Item>
 

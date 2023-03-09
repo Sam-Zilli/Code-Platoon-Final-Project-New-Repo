@@ -73,7 +73,7 @@ function CartScreen(history) {
                                 </Col>
 
                                 <Col md={2}>
-                                    {item.price}
+                                    {item.value}
                                 </Col>
                                 <Col md={1}>
                                     <Button
@@ -105,7 +105,7 @@ function CartScreen(history) {
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
                             <h3> Completed: ({cartItems.reduce((acc, item) => acc + item.qty, 0)})</h3>
-                            <h3> Total Points: {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}</h3>
+                            <h3> Total Points: {cartItems.reduce((acc, item) => acc + item.qty * item.value, 0).toFixed(2)}</h3>
                         </ListGroup.Item>
                     </ListGroup>
 
