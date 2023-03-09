@@ -1,8 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Product, Order, OrderItem
+from .models import Product
 from rest_framework_simplejwt.tokens import RefreshToken
-
 
 class UserSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField(read_only=True)
@@ -27,7 +26,6 @@ class UserSerializer(serializers.ModelSerializer):
 
         return name
 
-
 class UserSerializerWithToken(UserSerializer):
     token = serializers.SerializerMethodField(read_only=True)
     class Meta:
@@ -39,10 +37,7 @@ class UserSerializerWithToken(UserSerializer):
         token = RefreshToken.for_user(obj)
         return str(token.access_token)
 
-
-
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        # look up why __all__ works later
         fields = '__all__'
