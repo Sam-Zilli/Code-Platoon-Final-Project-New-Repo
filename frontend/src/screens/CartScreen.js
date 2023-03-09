@@ -108,8 +108,8 @@ function CartScreen(history) {
                 <Card>
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
-                            <h2> Points Earned: ({cartItems.reduce((acc, item) => acc + item.qty, 0)})</h2>
-                            {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
+                            <h3> Completed: ({cartItems.reduce((acc, item) => acc + item.qty, 0)})</h3>
+                            <h3> Total Points: {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}</h3>
                         </ListGroup.Item>
                     </ListGroup>
 

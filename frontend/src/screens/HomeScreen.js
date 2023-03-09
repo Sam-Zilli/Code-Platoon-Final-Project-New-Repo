@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {useEffect, useState} from 'react'
 import { listProducts } from '../actions/productActions'
 
+
 function HomeScreen() {
     const dispatch = useDispatch()
     const productList = useSelector(state => state.productList)
@@ -45,6 +46,7 @@ function HomeScreen() {
                         <Col key={product._id} sm={12} md={6} lg={4} xl={2}>
                             <Product product={product}/>
                         </Col>
+                        
                     ))}
                 </Row>}
                 {createOptions()}
