@@ -28,7 +28,7 @@ function Header() {
 
       <Container>
         <LinkContainer to='/'>
-          <Navbar.Brand>Tailoring Swiftly</Navbar.Brand>
+          <Navbar.Brand>Three-Swifty-Five</Navbar.Brand>
         </LinkContainer>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -38,7 +38,7 @@ function Header() {
           {/* to = is where the link will bring you to (without reloading the page) */}
 
           <LinkContainer to='/cart'>
-            <Nav.Link> Cart </Nav.Link>
+            <Nav.Link> Completed Aventures </Nav.Link>
           </LinkContainer>
 
           { userInfo ? (

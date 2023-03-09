@@ -37,7 +37,7 @@ function HomeScreen() {
   // -----------------------------------------------------------------------  
     return (
         <div>
-            <h1> Products </h1>
+            <h1> Quests  </h1>
             {loading ? <h3>I've got a blank space...</h3>
                 : error ? <h3>I forgot that you existed. (error 404: loading page) </h3>
                 :             

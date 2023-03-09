@@ -30,20 +30,20 @@ function CartScreen(history) {
 
      }
 
-    const checkoutHandler = () => {
-         history.push('/login?redirect=shipping')
-     }
+    // const checkoutHandler = () => {
+    //      history.push('/login?redirect=shipping')
+    //  }
 
 
     return (
         <Row>
             <Col md={8}>
-                <h1>Shopping Cart</h1>
+                <h1>Completed Adventures</h1>
                 {cartItems.length === 0 ? (
                     // <Message variant='info'>
                     //     Your cart is empty <Link to='/'>Go Back</Link>
                     // </Message>
-                    <h2> hehiejkfjlaskd</h2>
+                    <h2> You need to get started! </h2>
                 ) : (
                         <ListGroup variant='flush'>
                             {cartItems.map(item => (
@@ -107,12 +107,12 @@ function CartScreen(history) {
                 <Card>
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
-                            <h2>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items</h2>
-                            ${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
+                            <h2> Points Earned: ({cartItems.reduce((acc, item) => acc + item.qty, 0)})</h2>
+                            {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
                         </ListGroup.Item>
                     </ListGroup>
 
-                    <ListGroup.Item>
+                    {/* <ListGroup.Item>
                         <Button
                             type='button'
                             className='btn-block'
@@ -121,7 +121,7 @@ function CartScreen(history) {
                         >
                             Proceed To Checkout
                         </Button>
-                    </ListGroup.Item>
+                    </ListGroup.Item> */}
 
 
                 </Card>
