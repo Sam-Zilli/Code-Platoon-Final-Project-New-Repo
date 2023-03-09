@@ -18,7 +18,7 @@ function LoginScreen({ location, history }) {
     // const redirect = location.search ? location.search.split('=')[1] : '/'
 
     const userLogin = useSelector(state => state.userLogin)
-    const { error, loading, userInfo } = userLogin
+    const { error, userInfo } = userLogin // deleted LOADING
 
     // useEffect(() => {
     //     if (userInfo) {
@@ -66,8 +66,8 @@ function LoginScreen({ location, history }) {
                     Sign In
                 </Button>
             </Form>
-
-            {/* <Row className='py-3'>
+{/* 
+            <Row className='py-3'>
                 <Col>
                     New Customer? <Link
                         to={redirect ? `/register?redirect=${redirect}` : '/register'}>
