@@ -12,7 +12,7 @@ import {
 
 } from './reducers/productReducers'
 
-import { cartReducer } from './reducers/cartReducers'
+import { done_listReducer } from './reducers/done_listReducers'
 
 import {
     userLoginReducer,
@@ -41,7 +41,7 @@ import {
     productCreate: productCreateReducer,
     productUpdate: productUpdateReducer,
 
-    cart: cartReducer,
+    done_list: done_listReducer,
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
 //     // userDetails: userDetailsReducer,
@@ -59,15 +59,15 @@ import {
  })
 
 
-const cartItemsFromStorage = localStorage.getItem('cartItems') ?
-    JSON.parse(localStorage.getItem('cartItems')) : []
+const done_listItemsFromStorage = localStorage.getItem('done_listItems') ?
+    JSON.parse(localStorage.getItem('done_listItems')) : []
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ?
     JSON.parse(localStorage.getItem('userInfo')) : null
 
     const initialState = {
-        cart: {
-            cartItems: cartItemsFromStorage,
+        done_list: {
+            done_listItems: done_listItemsFromStorage,
         },
     userLogin: { userInfo: userInfoFromStorage },
     }

@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useLocation } from 'react-router-dom'
-import { addToCart, removeFromCart } from '../actions/cartActions'
+import { addToDone_list, removeFromDone_list } from '../actions/done_listActions'
 import { Row, Col, Image, ListGroup, Button, Card, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {useEffect, useState} from 'react'
 
-function CartScreen(history) {
+function Done_listScreen(history) {
 
     // Cat image API connection START
     const dispatch = useDispatch()
@@ -30,18 +30,18 @@ function CartScreen(history) {
     const location = useLocation()
     const qty = location.state ? Number(location.state) : 1
  
-    const cart = useSelector(state => state.cart)
-    const { cartItems } = cart
+    const done_list = useSelector(state => state.done_list)
+    const { done_listItems } = done_list
     
     useEffect(() => {
         if (productId) {
-            dispatch(addToCart(productId, qty))
+            dispatch(addToDone_list(productId, qty))
         }
         
     }, [dispatch, productId, qty])
 
-    const removeFromCartHandler = (id) => {
-        dispatch(removeFromCart(id))
+    const removeFromDone_listHandler = (id) => {
+        dispatch(removeFromDone_list(id))
 
      }
 
@@ -55,14 +55,14 @@ function CartScreen(history) {
             <Col md={8}>
                 <h1>Completed Adventures</h1>
                 {/*  If they haven't completed any adventures */}
-                {cartItems.length === 0 ? (
+                {done_listItems.length === 0 ? (
                     // <Message variant='info'>
-                    //     Your cart is empty <Link to='/'>Go Back</Link>
+                    //     Your done_list is empty <Link to='/'>Go Back</Link>
                     // </Message>
                     <h2> You need to get started! </h2>
                 ) : (
                     <ListGroup variant='flush'>
-                    {cartItems.map(item => (
+                    {done_listItems.map(item => (
                         <ListGroup.Item key={item.product}>
                             <Row>
                                 <Col>
@@ -79,7 +79,7 @@ function CartScreen(history) {
                                     <Button
                                         type='button'
                                         title = 'remove'
-                                        onClick={() => removeFromCartHandler(item.product)}
+                                        onClick={() => removeFromDone_listHandler(item.product)}
                                     >
                                         <i className='trash'></i>
                                     </Button>
@@ -104,8 +104,8 @@ function CartScreen(history) {
                 <Card>
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
-                            <h3> Completed: ({cartItems.reduce((acc, item) => acc + item.qty, 0)})</h3>
-                            <h3> Total Points: {cartItems.reduce((acc, item) => acc + item.qty * item.value, 0).toFixed(2)}</h3>
+                            <h3> Completed: ({done_listItems.reduce((acc, item) => acc + item.qty, 0)})</h3>
+                            <h3> Total Points: {done_listItems.reduce((acc, item) => acc + item.qty * item.value, 0).toFixed(2)}</h3>
                         </ListGroup.Item>
                     </ListGroup>
 
@@ -113,7 +113,7 @@ function CartScreen(history) {
                         <Button
                             type='button'
                             className='btn-block'
-                            disabled={cartItems.length === 0}
+                            disabled={done_listItems.length === 0}
                             onClick={checkoutHandler}
                         >
                             Proceed To Checkout
@@ -129,4 +129,4 @@ function CartScreen(history) {
     )
 }
 
-export default CartScreen
+export default Done_listScreen

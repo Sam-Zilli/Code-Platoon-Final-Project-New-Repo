@@ -37,7 +37,7 @@ function Header() {
 
           {/* to = is where the link will bring you to (without reloading the page) */}
 
-          <LinkContainer to='/cart'>
+          <LinkContainer to='/done_list'>
             <Nav.Link> Completed Aventures </Nav.Link>
           </LinkContainer>
 

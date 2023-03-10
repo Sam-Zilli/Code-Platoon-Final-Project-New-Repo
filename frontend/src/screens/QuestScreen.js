@@ -22,8 +22,8 @@ function QuestScreen() {
         dispatch(listQuestDetails(id))
     }, [dispatch, id])
  
-    const addToCartHandler = () => {
-        navigate(`/cart/${id}`, {state: qty})
+    const addToDone_listHandler = () => {
+        navigate(`/done_list/${id}`, {state: qty})
     }
     return (
         <div>
@@ -64,8 +64,8 @@ function QuestScreen() {
 
                             <ListGroup.Item>
                                 <Button 
-                                    // Calling the function to add this item to the cart
-                                    onClick={addToCartHandler}
+                                    // Calling the function to add this item to the done_list
+                                    onClick={addToDone_listHandler}
                                     className = 'btn-block' 
                                     type='button'>
                                     Mark as Completed
