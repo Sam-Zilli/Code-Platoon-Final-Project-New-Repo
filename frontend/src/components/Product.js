@@ -16,12 +16,6 @@ function Product({ product }) {
                     </Card.Title>
                 </Link>
 
-                <Card.Text as="div">
-                    <div className="my-3">
-                        <h6>This should be fun!</h6>
-                    </div>
-                </Card.Text>
-
 
                 <Card.Text as="h3">
                     {product.value}
